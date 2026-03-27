@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SMB Ad Budget Allocator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>SMB Ad Budget Allocator</h1>
+        <p>
+          Decide how to split your advertising budget across platforms based on
+          expected return, confidence, and minimum spend needs.
+        </p>
+      </header>
+
+      <section class="card">
+        <label for="totalBudget">Monthly ad budget ($)</label>
+        <input id="totalBudget" type="number" min="0" step="100" value="5000" />
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Platform</th>
+                <th>Expected ROAS</th>
+                <th>Confidence (0-1)</th>
+                <th>Min Spend ($)</th>
+              </tr>
+            </thead>
+            <tbody id="platformRows"></tbody>
+          </table>
+        </div>
+
+        <button id="addPlatform" type="button">+ Add Platform</button>
+        <button id="calculate" type="button">Allocate Budget</button>
+      </section>
+
+      <section class="card" id="resultsCard" hidden>
+        <h2>Suggested Allocation</h2>
+        <div id="validation" class="validation"></div>
+        <div id="results"></div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
